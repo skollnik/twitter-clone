@@ -1,0 +1,12 @@
+extends layouts/main-layout.pug 
+
+block content 
+    script. 
+        const postId = '!{postId}'
+    .postsContainer(style="visibility: hidden")
+    .loadingSpinnerContainer 
+        img(src="/images/Loading Spinner.gif", alt="Loading spinner")
+    +createPostModals(userLoggedIn)
+
+block scripts 
+    script(src="/script/postPage.js")

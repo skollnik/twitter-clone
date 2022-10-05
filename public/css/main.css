@@ -1,0 +1,823 @@
+:root {
+    --blue: #1fa2f1;
+    --blueLight: #9bd1f9;
+    --blueBackground: rgba(212, 237, 255, 0.6);
+    --buttonHoverBg: #d4edff;
+    --lightGrey: rgb(230, 236, 240);
+    --greyText: rgb(101, 119, 134);
+    --greyButtonText: rgba(0, 0, 0, 0.34);
+    --red: rgb(226, 34, 94);
+    --redBackground: rgba(226, 34, 94, 0.1);
+    --green: rgb(23, 191, 99);
+    --greenBackground: rgba(32, 191, 99, 0.1);
+    --spacing: 1rem;
+}
+
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+    background-color: #fff;
+    font-weight: 300;
+}
+
+ul {
+    margin: 0;
+}
+
+* {
+    outline: none !important;
+}
+
+h1 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100%;
+}
+
+nav a {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 1.875rem;
+    width: 3.45rem;
+    height: 3.45rem;
+    color: #212529;
+}
+
+nav a.logo {
+    color: var(--blue);
+}
+
+nav a:hover {
+    background-color: var(--buttonHoverBg);
+    color: var(--blue);
+    border-radius: 50%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.wrapper>.row {
+    height: 100%;
+    margin: 0;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: var(--greyButtonText);
+}
+
+button i,
+button span {
+    pointer-events: none;
+}
+
+.mainSectionContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border-left: 1px solid var(--lightGrey);
+    border-right: 1px solid var(--lightGrey);
+}
+
+.titleContainer {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    border-bottom: 1px solid var(--lightGrey);
+    height: 3.35rem;
+    padding: 0 var(--spacing);
+}
+
+.titleContainer h1 {
+    flex: 1;
+}
+
+.postFormContainer {
+    display: flex;
+    padding: var(--spacing);
+    border-bottom: 10px solid rgb(230, 236, 240);
+    flex-shrink: 0;
+}
+
+.modal .postFormContainer {
+    border: none;
+    padding: var(--spacing) 0 0 0;
+}
+
+.modal .post {
+    padding: 0;
+    padding: 0 0 var(--spacing) 0;
+}
+
+.userImageContainer {
+    width: 3.15rem;
+    height: 3.15rem;
+}
+
+.userImageContainer img {
+    width: 100%;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.textareaContainer {
+    flex: 1;
+    padding-left: var(--spacing);
+}
+
+.textareaContainer textarea {
+    width: 100%;
+    border: none;
+    resize: none;
+    font-size: 1.2rem;
+}
+
+#submitPostButton {
+    background-color: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: 7px 15px;
+}
+
+#submitPostButton:disabled {
+    background-color: var(--blueLight);
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: var(--spacing);
+    cursor: pointer;
+    border-bottom: 1px solid var(--lightGrey);
+}
+
+.mainContentContainer {
+    display: flex;
+    flex: 1;
+    overflow-y: hidden;
+}
+
+.postContentContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: var(--spacing);
+}
+
+.username,
+.date {
+    color: var(--greyText);
+}
+
+.displayName {
+    font-weight: bold;
+}
+
+.postFooter {
+    display: flex;
+    align-items: center;
+}
+
+.postFooter .postButtonContainer {
+    display: flex;
+    flex: 1;
+}
+
+.postFooter .postButtonContainer button {
+    padding: 2px 5px;
+}
+
+.postHeader a:hover {
+    text-decoration: underline;
+}
+
+.postHeader a,
+.postHeader span {
+    padding-right: 5px;
+}
+
+.postButtonContainer button:hover {
+    background-color: #d4edff;
+    color: var(--blue);
+    border-radius: 50%;
+}
+
+.postButtonContainer.liked button.active {
+    color: var(--red);
+}
+
+.postButtonContainer.liked button:hover {
+    color: var(--red);
+    background-color: var(--redBackground);
+}
+
+.postButtonContainer.retweeted button.active {
+    color: var(--green);
+}
+
+.postButtonContainer.retweeted button:hover {
+    color: var(--green);
+    background-color: var(--greenBackground);
+}
+
+.postActionContainer {
+    padding-left: 35px;
+    font-size: 0.81rem;
+    color: var(--greyText);
+}
+
+.replyFlag {
+    margin-bottom: 5px;
+}
+
+.replyFlag a {
+    color: var(--blue);
+}
+
+.post.largeFont .postBody,
+.post.largeFont .postFooter {
+    font-size: 1.43rem;
+}
+
+.postContentContainer .postHeader {
+    display: flex;
+}
+
+.postContentContainer .postHeader .date {
+    flex: 1;
+}
+
+.errorMessage {
+    padding: var(--spacing);
+}
+
+.coverPhotoSection {
+    position: relative;
+    height: 11.25rem;
+    background-color: var(--blue);
+}
+
+.profileHeaderContainer .userImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -4.125rem;
+    width: 8.25rem;
+    height: 8.25rem;
+    margin-left: var(--spacing);
+}
+
+.profileHeaderContainer .userImageContainer img {
+    border: 4px solid #fff;
+}
+
+.profileHeaderContainer .profileButtonsContainer {
+    min-height: 4.125rem;
+    padding: var(--spacing);
+    text-align: right;
+}
+
+.profileButton,
+.followButton {
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 60px;
+    display: inline-block;
+    margin-left: var(--spacing);
+}
+
+.profileButton:hover,
+.followButton:hover {
+    background-color: var(--blueBackground);
+}
+
+.followButton.following {
+    background-color: var(--blue);
+    color: #fff;
+}
+
+.profileHeaderContainer .userDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--spacing);
+}
+
+.followersContainer .value {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.followersContainer span:not(.value) {
+    color: var(--greyText)
+}
+
+.followersContainer a {
+    margin-right: 15px;
+}
+
+.followersContainer a:hover {
+    border-bottom: 1px solid #000;
+}
+
+.tabsContainer {
+    display: flex;
+    border-bottom: 1px solid var(--lightGrey);
+    flex-shrink: 0;
+}
+
+.tab {
+    display: flex;
+    flex: 1;
+    height: 3.25rem;
+    justify-content: center;
+    align-items: center;
+    color: var(--greyText);
+    font-weight: bold;
+}
+
+.tab.active {
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+}
+
+.tab:hover {
+    color: var(--blue);
+    background-color: var(--blueBackground);
+}
+
+.noResults {
+    padding: var(--spacing);
+}
+
+.resultsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.resultsContainer .user {
+    display: flex;
+    padding: var(--spacing);
+    border-bottom: 1px solid var(--lightGrey);
+}
+
+.user .userDetailsContainer {
+    flex: 1;
+    padding: 0 var(--spacing);
+}
+
+.profilePictureButton,
+.coverPhotoButton {
+    display: none;
+    position: absolute;
+    font-size: 3.125rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.userImageContainer:hover .profilePictureButton,
+.coverPhotoSection:hover .coverPhotoButton {
+    display: block;
+}
+
+.coverPhotoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.coverPhotoContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#imagePreview,
+#coverPreview {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+.pinButton.active {
+    color: var(--blue);
+}
+
+.pinnedPostText {
+    font-size: 0.75rem;
+    color: var(--greyText);
+}
+
+.pinnedPostContainer {
+    border-bottom: 10px solid rgb(230, 236, 240);
+}
+
+.searchBarContainer {
+    position: relative;
+    color: var(--greyText);
+    padding: 10px var(--spacing);
+}
+
+.searchBarContainer i {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.75rem;
+}
+
+.searchBarContainer #searchBox {
+    color: var(--greyText);
+    width: 100%;
+    height: 2.25rem;
+    padding: 5px 15px 5px 40px;
+    border: none;
+    border-radius: 50px;
+    background-color: var(--lightGrey);
+}
+
+.chatPageContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    flex-basis: 0;
+    min-height: 0;
+}
+
+.chatTitleBar {
+    display: flex;
+    align-items: center;
+    min-height: 3.75rem;
+    border-bottom: 1px solid var(--lightGrey);
+    padding: 10px;
+}
+
+.chatTitleBar label {
+    margin: 0 10px 0 0;
+}
+
+#userSearchTextbox {
+    flex: 1;
+    min-width: 21.875rem;
+    font-weight: 200;
+    border: none;
+}
+
+#createChatButton {
+    background-color: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: 7px 20px;
+    margin: 10px auto;
+}
+
+#createChatButton:disabled {
+    background-color: var(--lightGrey);
+    color: var(--greyText);
+}
+
+.selectedUser {
+    display: inline-block;
+    background-color: #cbe5fe;
+    color: #0084ff;
+    font-weight: 300;
+    padding: 5px;
+    margin: 5px 5px 0 0;
+    border-radius: 3px;
+}
+
+.resultListItem {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    padding: 7px;
+    border-bottom: 1px solid var(--lightGrey);
+}
+
+.resultListItem:hover {
+    background-color: #f2f2f2;
+}
+
+.resultsDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.resultsDetailsContainer .heading {
+    font-weight: 500;
+}
+
+.resultsDetailsContainer .subText {
+    color: var(--greyText);
+    font-size: 0.875rem;
+}
+
+.resultListItem img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.resultsImageContainer {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.groupChatImage img {
+    position: absolute;
+    width: 65%;
+    height: 65%;
+    bottom: 0;
+    margin: 0;
+    border: 2px solid #fff;
+}
+
+.groupChatImage img:first-of-type {
+    top: 0;
+    right: 0;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chatTitleBarContainer {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--lightGrey);
+    padding: var(--spacing);
+}
+
+#chatName {
+    width: 100%;
+    border: 1px solid transparent;
+    padding: 0 5px;
+}
+
+#chatName:hover {
+    border: 1px solid var(--lightGrey);
+    cursor: text;
+}
+
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: hidden;
+}
+
+.chatContainer .footer {
+    display: flex;
+    flex-shrink: 0;
+    padding: var(--spacing);
+}
+
+.chatContainer .footer textarea {
+    flex: 1;
+    resize: none;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: none;
+    border-radius: 18px;
+    padding: 8px 12px;
+    height: 2.47rem;
+}
+
+.chatContainer .footer button {
+    background-color: transparent;
+    color: var(--blue);
+    font-size: 1.5rem;
+}
+
+.chatMessages {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: var(--spacing);
+    overflow-y: auto;
+}
+
+.chatImagesContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 100%;
+    margin-right: 10px;
+}
+
+.chatImagesContainer img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.chatImagesContainer .userCount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #f1f1f1;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.chatImagesContainer img:not(:last-child),
+.chatImagesContainer .userCount {
+    margin-left: -10px;
+}
+
+#chatNameTextbox {
+    width: 100%;
+}
+
+.chatMessages .message {
+    display: flex;
+    align-items: flex-end;
+    flex-shrink: 0;
+    list-style: none;
+    padding-bottom: 2px;
+}
+
+.chatMessages .message .messageBody {
+    background-color: #f1f0f0;
+    padding: 6px 12px;
+    border-radius: 18px;
+    font-size: 0.875rem;
+}
+
+.typingDots {
+    display: none;
+    padding: var(--spacing) var(--spacing) 0 var(--spacing);
+}
+
+.typingDots img {
+    height: 2.0625rem;
+}
+
+.chatMessages .message .messageContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 55%;
+}
+
+.chatMessages .message.mine .messageContainer {
+    align-items: flex-end;
+}
+
+.chatMessages .message.theirs .messageContainer {
+    align-items: flex-start;
+}
+
+.chatMessages .message.mine {
+    flex-direction: row-reverse;
+}
+
+.chatMessages .message.mine .messageBody {
+    background-color: var(--blue);
+    color: #fff;
+}
+
+.chatMessages .message.mine.first .messageBody {
+    border-bottom-right-radius: 2px;
+}
+
+.chatMessages .message.mine:not(.first):not(.last) .messageBody {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.chatMessages .message.mine.last .messageBody {
+    border-bottom-right-radius: 18px;
+}
+
+.chatMessages .message.mine.last:not(.first) .messageBody {
+    border-top-right-radius: 2px;
+}
+
+.chatMessages .message.theirs.first .messageBody {
+    border-bottom-left-radius: 2px;
+}
+
+.chatMessages .message.theirs:not(.first):not(.last) .messageBody {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.chatMessages .message.theirs.last .messageBody {
+    border-bottom-left-radius: 18px;
+}
+
+.chatMessages .message.theirs.last:not(.first) .messageBody {
+    border-top-left-radius: 2px;
+}
+
+.senderName {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.chatMessages .imageContainer {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 7px;
+}
+
+.chatMessages img {
+    height: 100%;
+    border-radius: 50%;
+    vertical-align: bottom;
+}
+
+.chatMessages .message.last {
+    margin-bottom: 7px;
+}
+
+.loadingSpinnerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.loadingSpinnerContainer img {
+    width: 50%;
+    max-width: 250px;
+}
+
+.resultListItem.active {
+    background-color: var(--blueBackground);
+}
+
+.resultListItem.notification * {
+    pointer-events: none;
+}
+
+#notificationBadge,
+#messagesBadge {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    background-color: var(--red);
+    color: white;
+    font-size: 18px;
+    visibility: hidden;
+}
+
+#notificationBadge.active,
+#messagesBadge.active {
+    visibility: visible;
+}
+
+#notificationList {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    width: 21.875rem;
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+#notificationList .active {
+    background-color: white;
+}
